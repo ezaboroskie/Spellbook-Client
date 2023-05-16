@@ -66,7 +66,7 @@ function App() {
   return(
     <>
 
-      <div className='user-left-container'>
+     
         <div className='user-container'>
           <FontAwesomeIcon className='home-user-icon' icon={["fas", "fa-user"]}/>
           <div className='user-dropdown'>
@@ -75,7 +75,7 @@ function App() {
             <p onClick ={handleLogOClick}>Logout</p>
           </div>
         </div>
-      </div>
+      
     
 
     {matchesS &&(
@@ -91,7 +91,7 @@ function App() {
     )}
 
 
-    {matches &&(
+   
       <div className='nav-right-container'>
         <div className='nav-container'>
           <FontAwesomeIcon className='nav-drop-icon' icon={["fas", "fa-bars"]}/>
@@ -103,9 +103,9 @@ function App() {
         </div> 
       </div>
       
-    )}
+    
 
-    {!matches &&(
+    {/* {!matches &&(
       <div className='top-container-large'>
         <div className='nav-container-large'>
           <button className='home-search-btn' onClick ={handleSearchCard}>Search Card</button>
@@ -113,7 +113,7 @@ function App() {
           <button className='home-fav-btn' onClick ={handleFavorites}>Favorite Cards</button>
         </div>
       </div>
-    )}
+    )} */}
 
     
     <Counter/>
