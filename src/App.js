@@ -66,7 +66,6 @@ function App() {
   return(
     <>
 
-    <div className='top-container'>  
       <div className='user-left-container'>
         <div className='user-container'>
           <FontAwesomeIcon className='home-user-icon' icon={["fas", "fa-user"]}/>
@@ -77,7 +76,7 @@ function App() {
           </div>
         </div>
       </div>
-    </div>
+    
 
     {matchesS &&(
           <div className='logo-container-small'>
