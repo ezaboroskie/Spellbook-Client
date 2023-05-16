@@ -1,0 +1,124 @@
+.counter-container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    margin:auto;
+    margin-top: 220px;
+    color: white
+}
+
+.counter-container-large{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    height: 100%;
+    width: 100%;
+    margin:auto;
+    margin-top: 100px;
+    color: white
+}
+
+.counter-numb-container{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+.arrow-container{
+    display: flex;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.counter-numb{
+    font-size: 75px
+}
+
+.arrow-up{
+    font-size: 40px;
+    color: green;
+    margin-right: 35px;
+    margin-left: 10px
+    
+}
+
+.arrow-up:hover{
+    cursor: pointer;
+}
+
+.arrow-down{
+    font-size: 40px;
+    color:rgb(221, 85, 35);
+    margin-left: 35px
+}
+
+.arrow-down:hover{
+    cursor: pointer;
+}
+
+.plus-minus-text{
+    font-size: 22px;
+}
+
+.plus-minus-text:hover{
+    cursor: pointer
+}
+
+.add-sub-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-left: 10px
+}
+
+.text-box-container{
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 75px;
+    margin-right: 10px
+}
+
+.text-box{
+    width: 75px;
+    text-align: center;
+}
+
+.plus-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+}
+
+.minus-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+}
+
+.plus-icon{
+    font-size: 25px;
+    color: green;
+}
+
+.plus-icon:hover{
+    cursor: pointer;
+}
+
+.minus-icon{
+    font-size: 25px;
+    color: rgb(221, 85, 35)
+}
+
+.minus-icon:hover{
+    cursor: pointer;
+}

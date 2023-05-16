@@ -1,0 +1,259 @@
+.top-container{
+    display: flex;
+    width: 100%;
+}
+
+.top-container-large{
+    display: flex;
+    width: 100%;
+}
+
+.user-left-container{
+    position: absolute;
+    left: 0
+}
+
+.user-container{
+    margin: 10px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.user-dropdown{
+    display: none;
+    position: absolute;
+    background-color:  rgb(221, 85, 35);
+    z-index:1;
+    border-radius: 5px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.user-dropdown p {
+    color: white;
+    text-decoration: none;
+    display:block;
+    margin: 5px;
+    padding: 3px;
+}
+
+.user-dropdown p:hover{
+    background-color: white;
+    color: rgb(221, 85, 35);
+    border-radius: 5px;
+}
+
+.user-container:hover .user-dropdown{
+    display:block;
+}
+
+.nav-right-container{
+    position: absolute;
+    right:0;
+}
+
+.nav-container{
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.nav-dropdown{
+    display: none;
+    position: absolute;
+    width: 125px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-75%);
+    background-color: rgb(221, 85, 35);
+    z-index: 1;
+    border-radius: 5px; 
+    z-index: 2;
+}
+
+.nav-dropdown p{
+    color: white;
+    text-decoration: none;
+    display:block;
+    margin: 5px;
+    padding: 3px;
+}
+
+.nav-dropdown p:hover{
+    background-color: white;
+    color:rgb(221, 85, 35);
+    border-radius: 5px;
+}
+
+.nav-container:hover .nav-dropdown{
+    display: block;
+    
+}
+
+.nav-drop-icon{
+    color:rgb(221, 85, 35);
+    font-size: 60px;
+}
+
+.nav-drop-icon:hover{
+    color: white;
+}
+
+.nav-container-large{
+    display: flex;
+    width: 100%;
+    margin-top: 100px;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
+}
+
+.home-search-btn{
+    width: 125px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    padding: none;
+    background-color: rgb(221, 85, 35);
+    margin: 2px;
+    color: white
+}
+
+.home-search-btn:hover{
+    background-color: white;
+    color:rgb(221, 85, 35)
+}
+
+.home-rand-btn{
+    width: 125px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    padding: none;
+    background-color: rgb(221, 85, 35);
+    margin: 2px;
+    color: white
+}
+
+.home-rand-btn:hover{
+    background-color: white;
+    color:rgb(221, 85, 35)
+}
+
+.home-fav-btn{
+    width: 125px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    padding: none;
+    background-color: rgb(221, 85, 35);
+    margin: 2px;
+    color: white
+}
+
+.home-fav-btn:hover{
+    background-color: white;
+    color:rgb(221, 85, 35)
+}
+
+.home-user-icon{
+    font-size: 50px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    color:rgb(221, 85, 35);
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+.home-user-icon:hover{
+    color: white;
+    
+}
+
+.home-roll-btn{
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    padding: none;
+    background-color: rgb(221, 85, 35);
+    color: white
+}
+
+.home-roll-btn:hover{
+    background-color: white;
+    color:rgb(221, 85, 35)
+}
+
+.home-roll-btn:active{
+    background-color: rgb(51, 122, 51);
+    color: white
+}
+
+.roll-btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.logo-center{
+    height: 50px;
+    width: auto;
+    z-index: 1;
+}
+
+.logo-container{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right:0;
+    text-align: center;
+    margin-top: 10px;
+    width: 200px;
+    z-index: 1;
+}
+
+.logo-center-small{
+    height: 30px;
+    width: auto;
+    z-index: 1;
+}
+
+.logo-container-small{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right:0;
+    text-align: center;
+    margin-top: 10px;
+    width: 125px;
+    z-index: 1;
+}
+
+.logo-center-small-fav{
+    height: 30px;
+    width: auto;
+    z-index: 1;
+}
+
+.logo-container-small-fav{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right:0;
+    top: 0;
+    text-align: center;
+    margin-top: 10px;
+    width: 125px;
+    z-index: 1;
+}

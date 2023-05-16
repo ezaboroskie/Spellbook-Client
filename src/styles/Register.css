@@ -1,0 +1,148 @@
+.reg-body{
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+
+}
+
+.reg-container{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    
+}
+
+.user-icon{
+    font-size: 50px;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    color:rgb(221, 85, 35)
+}
+
+.reg-textbox{
+    height: 35px;
+    margin: 5px;
+    border: none;
+    border:solid 1px;
+    border-radius: 5px;
+}
+
+.reg-reg-btn{
+    width: 100px;
+    height: 50px;
+    align-self: center;
+    margin: 5px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(221, 85, 35);
+    color: white
+}
+
+.reg-log-btn{
+    width: 100px;
+    height: 50px;
+    align-self: center;
+    margin: 5px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(221, 85, 35);
+    color: white
+}
+
+.reg-log-btn:hover{
+    transform: translateY(-5px);
+    background-color: white;
+    color:  rgb(221, 85, 35);
+}
+
+.reg-log-btn:active{
+    transform: translateY(-5px);
+    background-color: rgb(221, 85, 35);
+    color:  white
+}
+
+.reg-log-reg-btn{
+    width: 100px;
+    height: 50px;
+    align-self: center;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(221, 85, 35);
+    color: white
+}
+
+.reg-log-reg-btn:hover{
+    transform: translateY(-5px);
+    background-color: white;
+    color:  rgb(221, 85, 35);
+}
+
+.reg-log-reg-btn:active{
+    transform: translateY(-5px);
+    background-color: rgb(221, 85, 35);
+    color:  white
+}
+
+.reg-reg-btn:hover{
+    transform: translateY(-5px);
+    background-color: white;
+    color:  rgb(221, 85, 35);
+}
+
+.reg-reg-btn:active{
+    transform: translateY(-5px);
+    background-color: rgb(221, 85, 35);
+    color:  white
+}
+
+.reg-home-btn{
+    width: 100px;
+    height: 50px;
+    align-self: center;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(221, 85, 35);
+    color: white;
+    
+}
+
+.reg-home-btn:hover{
+    transform: translateY(5px);
+    background-color: rgb(51, 122, 51);
+}
+
+.reg-heading{
+    color: rgb(221, 85, 35);
+    text-align: center;
+    font-size: 50px;
+    margin-top: 75px
+}
+
+.reg-heading2{
+    color: rgba(255, 255, 255, 0.74);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 20px
+}
+
+
+.logo-container{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right:0;
+    top:0;
+    text-align: center;
+    margin-top: 10px;
+    width: 200px;
+    height: 100px
+}

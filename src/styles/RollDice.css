@@ -1,0 +1,48 @@
+.RollDice {
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
+}
+
+.RollDice-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 125px;
+}
+
+.RollDice button{
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    padding: none;
+    background-color: rgb(221, 85, 35);
+    margin-top: 100px;
+    color: white;
+    align-self: center;
+}
+
+.RollDice button:hover{
+    background-color: white;
+    color:rgb(221, 85, 35)
+}
+
+
+.RollDice button:hover{
+    cursor: pointer;
+}
+
+.RollDice-rolling{
+    border: 0px;
+    border-radius: 10px;
+    background-color: rgb(51, 122, 51)  !important;
+   
+}
+
+.DisplayNumber{
+    position: absolute;
+    margin-top: 10px;
+    align-self: center;
+    color: white
+}

@@ -1,0 +1,73 @@
+
+svg{
+    padding: 0;
+    margin-right: 10px;
+
+}
+
+.Die {
+    font-size: 10em;
+    padding: 0.25em;
+    color:  rgb(221, 85, 35);
+    justify-self: center;
+ 
+}
+
+.Die-shaking{
+    animation-name:Roll-It;
+    animation-duration: .75s;
+}
+
+@keyframes Roll-It {
+    from {
+      transform: translate3d(-75%, 0, 0)
+                  rotate3d(0,0,1,-30deg);
+    }
+    5%{
+      transform: translate3d(-50%, 0, 0) 
+                  rotate3d(0, 0, 1, -25deg);
+    }
+    10%{
+      transform: translate3d(-35%, 0, 0) 
+                  rotate3d(0, 0, 1, -20deg);
+    }
+    15% {
+      transform: translate3d(-25%, 0, 0) 
+                 rotate3d(0, 0, 1, -15deg);
+    }
+    20%{
+      transform: translate3d(-15%, 0, 0) 
+                  rotate3d(0, 0, 1, -5deg);
+    }
+    25%{
+      transform: translate3d(-5%, 0, 0) 
+                  rotate3d(0, 0, 1, 0deg);
+    }
+    30% {
+      transform: translate3d(20%, 0, 0) 
+                 rotate3d(0, 0, 1, 10deg);
+    }
+    35%{
+      transform: translate3d(35%, 0, 0) 
+                  rotate3d(0, 0, 1, 20deg);
+    }
+    40%{
+      transform: translate3d(40%, 0, 0) 
+                  rotate3d(0, 0, 1, 25deg); 
+    }
+    45% {
+      transform: translate3d(50%, 0, 0)
+                 rotate3d(0, 0, 1, 60deg);
+    }
+    60% {
+      transform: translate3d(25%, 0, 0) 
+                 rotate3d(0, 0, 1, 15deg);
+    }
+    75% {
+      transform: translate3d(10%, 0, 0) 
+                 rotate3d(0, 0, 1, 5deg);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
