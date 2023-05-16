@@ -10,7 +10,8 @@
 
 .user-left-container{
     position: absolute;
-    left: 0
+    left: 0;
+    top: 0
 }
 
 .user-container{
@@ -53,6 +54,7 @@ p {
 
 .nav-right-container{
     position: absolute;
+    top: 0;
     right:0;
 }
 
