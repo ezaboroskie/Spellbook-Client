@@ -22,7 +22,7 @@
 }
 
 .user-dropdown{
-    display: none;
+    display: block;
     position: absolute;
     background-color:  rgb(221, 85, 35);
     z-index:1;
@@ -48,9 +48,9 @@ p {
     border-radius: 5px;
 }
 
-.user-container:hover .user-dropdown{
-    display:block;
-}
+/*.user-container:hover .user-dropdown{*/
+/*    display:block;*/
+/*}*/
 
 .nav-right-container{
     position: absolute;

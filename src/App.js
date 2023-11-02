@@ -9,7 +9,7 @@ import './styles/Body.css'
 import './styles/Home.css'
 import './styles/Register.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 
 library.add(fas)
@@ -27,6 +27,13 @@ function App() {
     window.matchMedia("(max-width:340px)").matches
   )
 
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleUserClick = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
   useEffect(()=>{
     window
     .matchMedia("(max-width:720px)")
@@ -38,6 +45,19 @@ function App() {
     .matchMedia("(max-width:340px)")
     .addEventListener('change', e => setMatchesS(e.matches));
   }, [])
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   const navigate = useNavigate()
 
@@ -66,16 +86,17 @@ function App() {
   return(
     <>
 
-     
-        <div className='user-container'>
-          <FontAwesomeIcon className='home-user-icon' icon={["fas", "fa-user"]}/>
-          <div className='user-dropdown'>
-            <p onClick ={handleLogClick}>Login</p>
-            <p onClick ={handleRegClick}>Register</p>
-            <p onClick ={handleLogOClick}>Logout</p>
-          </div>
-        </div>
-      
+
+      <div className='user-container' onClick={handleUserClick}>
+        <FontAwesomeIcon className='home-user-icon' icon={["fas", "fa-user"]}/>
+        {isDropdownOpen && (
+            <div className='user-dropdown' ref={dropdownRef}>
+              <p onClick={handleLogClick}>Login</p>
+              <p onClick={handleRegClick}>Register</p>
+              <p onClick={handleLogOClick}>Logout</p>
+            </div>
+        )}
+      </div>
     
 
     {matchesS &&(

@@ -33,14 +33,22 @@ function RandomCard(){
         .then(response=>response.json())
         .then(randomCard=>{
             setRandomCard(randomCard)
-            setImageUrl(randomCard.image_uris.border_crop)
-        })
-    }
+            setImageUrl(
+                randomCard.card_faces && randomCard.card_faces.length > 0
+                    ? randomCard.card_faces[0].image_uris.border_crop
+                    : randomCard.image_uris.border_crop
+            );
+        });
+    };
 
     const handleAddFav = (imageURL) =>{
     
         const token = localStorage.getItem('jwt')
         const userId = localStorage.getItem('userId')
+        const frontFaceImageUrl =
+            randomCard.card_faces && randomCard.card_faces.length > 0
+                ? randomCard.card_faces[0].image_uris.border_crop
+                : imageURL;
 
         fetch('https://the-spellbook-server.onrender.com/add-fav', {
             method: 'POST',
@@ -48,7 +56,7 @@ function RandomCard(){
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({userId:userId, imageURL:imageURL})
+            body: JSON.stringify({userId:userId, imageURL: frontFaceImageUrl})
         })
         
         

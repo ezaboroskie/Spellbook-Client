@@ -53,11 +53,15 @@ function SearchCard(){
         }
     }
 
-    const handleAddFav = (imageURL) =>{
+    const handleAddFav = (imageUrl) =>{
         
 
         const token = localStorage.getItem('jwt')
         const userId = localStorage.getItem('userId')
+
+        if (imageUrl === 'defaultImageUrl' && objCard.card_faces && objCard.card_faces.length > 0) {
+            imageUrl = objCard.card_faces[0].image_uris.border_crop;
+        }
 
         fetch('https://the-spellbook-server.onrender.com/add-fav', {
             method: 'POST',
@@ -65,7 +69,7 @@ function SearchCard(){
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({userId:userId, imageURL:imageURL})
+            body: JSON.stringify({userId:userId, imageURL:imageUrl})
         })
         
 
@@ -74,44 +78,82 @@ function SearchCard(){
     const handleImgClick=(card)=>{
         setObjCard(card)
         setModalShow(true) 
-    }  
-  
-    const searchedCardItems = searchedCards.map((card,index)=>{
-        return <div className='card-container' key={index}>
-                    <img variant="primary" onClick={()=>handleImgClick(card)}  className='image-thumb' src={card.image_uris ? card.image_uris.border_crop : card.card_faces[0].image_uris.border_crop}/>
-                <button onClick={()=>card.image_uris ? handleAddFav(card.image_uris.border_crop) : handleAddFav(card.card_faces[0].image_uris.border_crop)} className='fav-btn'>Favorite</button>
-        
-                </div>
-                
-    })
+    }
 
-    return(
+    const searchedCardItems = searchedCards.map((card, index) => {
+        let imageUrl;
+        if (card.image_uris) {
+            imageUrl = card.image_uris.border_crop;
+        } else if (card.card_faces && card.card_faces[0].image_uris) {
+            imageUrl = card.card_faces[0].image_uris.border_crop;
+        }
+
+        return (
+            <div className='card-container' key={index}>
+                {imageUrl ? (
+                    <img
+                        variant="primary"
+                        onClick={() => handleImgClick(card)}
+                        className='image-thumb'
+                        src={imageUrl}
+                    />
+                ) : (
+                    <p>No image available</p>
+                )}
+                <button
+                    onClick={() =>
+                        imageUrl ? handleAddFav(imageUrl) : handleAddFav('defaultImageUrl')
+                    }
+                    className='fav-btn'
+                >
+                    Favorite
+                </button>
+            </div>
+        );
+    });
+
+    return (
         <>
-        <Home/>
-        
-        {matchesS &&(
-        <div className='logo-container-small-fav'>
-        <img className='logo-center-small-fav' alt='logo' src={String(logo)} />
-        </div>
-        )}
+            <Home />
 
-        {!matchesS &&(
-        <div className='logo-container'>
-        <img className='logo-center' alt='logo' src={String(logo)} />
-        </div>
-        )}
-       
-        <div className='search-bar-container'>
-        <input className='search-bar' onKeyDown={handleKeyDown} type = 'text' name= 'cardName' placeholder= 'Enter card name' onChange={(e)=>setCardName (e.target.value)} />
-        <button className='search-btn' onClick ={fetchSearchCard}>Search</button>
-        </div>
-        <div className='thumb-container'>{searchedCardItems}</div>
-        {Object.keys(objCard).length>0?<CenterModal cardobj={objCard} image={objCard.image_uris.border_crop}
-            show={modalShow}
-            onHide={()=>setModalShow(false)}
-            /> : ''}
+            {matchesS && (
+                <div className='logo-container-small-fav'>
+                    <img className='logo-center-small-fav' alt='logo' src={String(logo)} />
+                </div>
+            )}
+
+            {!matchesS && (
+                <div className='logo-container'>
+                    <img className='logo-center' alt='logo' src={String(logo)} />
+                </div>
+            )}
+
+            <div className='search-bar-container'>
+                <input
+                    className='search-bar'
+                    onKeyDown={handleKeyDown}
+                    type='text'
+                    name='cardName'
+                    placeholder='Enter card name'
+                    onChange={(e) => setCardName(e.target.value)}
+                />
+                <button className='search-btn' onClick={fetchSearchCard}>
+                    Search
+                </button>
+            </div>
+            <div className='thumb-container'>{searchedCardItems}</div>
+            {Object.keys(objCard).length > 0 ? (
+                <CenterModal
+                    cardobj={objCard}
+                    image={objCard.image_uris ? objCard.image_uris.border_crop : 'defaultImageUrl'}
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
+            ) : (
+                ''
+            )}
         </>
-    )
+    );
 
 
 }
