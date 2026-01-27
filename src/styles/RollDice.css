@@ -46,3 +46,43 @@
     align-self: center;
     color: white
 }
+
+.RollDice-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.color-picker-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.color-picker {
+    width: 60px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 3px;
+}
+
+.color-picker::-moz-color-swatch {
+    border: none;
+    border-radius: 3px;
+}

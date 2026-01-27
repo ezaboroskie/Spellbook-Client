@@ -3,6 +3,7 @@ import Die from '../components/Die'
 import '../styles/RollDice.css'
 import '../styles/Home.css'
 import Home from '../components/Home'
+import { getContrastTextColor } from '../utils/colorUtils'
 
 
 const logo = require('../images/logo.png')
@@ -16,12 +17,16 @@ class RollDice extends Component{
 
     constructor(props){
         super(props)
+        const defaultDiceColor = '#dd5523'
         this.state={
             die1:'',
             rolling: false,
-            showh1: false
+            showh1: false,
+            diceColor: defaultDiceColor,
+            textColor: getContrastTextColor(defaultDiceColor)
         }
         this.roll = this.roll.bind(this)
+        this.handleColorChange = this.handleColorChange.bind(this)
     }
 
     roll(){
@@ -38,6 +43,15 @@ class RollDice extends Component{
             this.setState({showh1:false})
         },1000)
         }
+
+    handleColorChange(event){
+        const newColor = event.target.value
+        const newTextColor = getContrastTextColor(newColor)
+        this.setState({
+            diceColor: newColor,
+            textColor: newTextColor
+        })
+    }
     
         
 
@@ -45,7 +59,7 @@ class RollDice extends Component{
     render(){
         const handleBtn = this.state.rolling ? 
         'RollDice-rolling' : ''
-        const {die1,rolling} = this.state
+        const {die1, rolling, diceColor, textColor} = this.state
 
 
         return(
@@ -57,8 +71,26 @@ class RollDice extends Component{
 
             <div className = 'RollDice'>
                 <div className = 'RollDice-container'>
-                    <Die face = {die1} rolling ={rolling}/>
-                <h1 hidden={this.state.showh1} className='DisplayNumber'>{die1}</h1>          
+                    <Die face = {die1} rolling ={rolling} color={diceColor}/>
+                <h1 
+                    hidden={this.state.showh1} 
+                    className='DisplayNumber'
+                    style={{color: textColor}}
+                >
+                    {die1}
+                </h1>          
+                </div>
+                
+                <div className='RollDice-controls'>
+                    <label className='color-picker-label'>
+                        Dice Color:
+                        <input 
+                            type="color" 
+                            value={diceColor}
+                            onChange={this.handleColorChange}
+                            className='color-picker'
+                        />
+                    </label>
                 </div>
                 
                 <button className = {handleBtn}
