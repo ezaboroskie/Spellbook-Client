@@ -13,20 +13,57 @@ class RollDice extends Component{
         sides: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ]
     }
 
-    
+    static STORAGE_KEY = 'diceColor'
+    static EXPIRATION_TIME = 60 * 60 * 1000 // 1 hour in milliseconds
 
     constructor(props){
         super(props)
         const defaultDiceColor = '#dd5523'
+        const savedColor = this.getStoredColor()
+        const initialColor = savedColor || defaultDiceColor
         this.state={
             die1:'',
             rolling: false,
             showh1: false,
-            diceColor: defaultDiceColor,
-            textColor: getContrastTextColor(defaultDiceColor)
+            diceColor: initialColor,
+            textColor: getContrastTextColor(initialColor)
         }
         this.roll = this.roll.bind(this)
         this.handleColorChange = this.handleColorChange.bind(this)
+    }
+
+    getStoredColor(){
+        try {
+            const stored = localStorage.getItem(RollDice.STORAGE_KEY)
+            if (!stored) return null
+            
+            const { color, timestamp } = JSON.parse(stored)
+            const now = Date.now()
+            
+            // Check if expired (1 hour or more has passed)
+            if (now - timestamp > RollDice.EXPIRATION_TIME) {
+                localStorage.removeItem(RollDice.STORAGE_KEY)
+                return null
+            }
+            
+            return color
+        } catch (error) {
+            // If there's an error parsing, remove the invalid data
+            localStorage.removeItem(RollDice.STORAGE_KEY)
+            return null
+        }
+    }
+
+    saveColorToStorage(color){
+        try {
+            const data = {
+                color: color,
+                timestamp: Date.now()
+            }
+            localStorage.setItem(RollDice.STORAGE_KEY, JSON.stringify(data))
+        } catch (error) {
+            console.error('Failed to save color to localStorage:', error)
+        }
     }
 
     roll(){
@@ -51,6 +88,7 @@ class RollDice extends Component{
             diceColor: newColor,
             textColor: newTextColor
         })
+        this.saveColorToStorage(newColor)
     }
     
         
