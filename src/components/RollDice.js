@@ -93,9 +93,15 @@ class RollDice extends Component{
                     </label>
                 </div>
                 
-                <button className = {handleBtn}
+                <button 
+                    className = {handleBtn}
                     disabled= {this.state.rolling}
-                    onClick = {this.roll}>
+                    onClick = {this.roll}
+                    style={rolling ? {
+                        backgroundColor: diceColor,
+                        color: textColor
+                    } : {}}
+                >
                     {this.state.rolling ? 'Rolling' : 'Roll Dice!'}
                 </button>
                 

@@ -17,15 +17,16 @@
     border: none;
     border-radius: 5px;
     padding: none;
-    background-color: rgb(221, 85, 35);
-    margin-top: 20px;
-    color: white;
+    background-color: white;
+    margin-top: 40px;
+    color: black;
+    font-weight: 600;
     align-self: center;
 }
 
-.RollDice button:hover{
-    background-color: white;
-    color:rgb(221, 85, 35)
+.RollDice button:hover:not(:disabled){
+    background-color: rgb(221, 85, 35);
+    color: white;
 }
 
 
@@ -36,7 +37,6 @@
 .RollDice-rolling{
     border: 0px;
     border-radius: 10px;
-    background-color: rgb(51, 122, 51)  !important;
    
 }
 
@@ -51,7 +51,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
 .color-picker-label {
